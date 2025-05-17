@@ -17,3 +17,5 @@ dependencies:
   - matplotlib
   - pytorch::pytorch
   - torchvision
+  - pip:
+    - einops
