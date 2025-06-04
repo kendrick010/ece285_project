@@ -1,7 +1,9 @@
 import io
 import zipfile
-from PIL import Image
+from PIL import Image, ImageFile
 from torch.utils.data import Dataset
+
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 class WikiArtDataset(Dataset):
     def __init__(self, zip_path, transform=None):
