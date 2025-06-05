@@ -15,7 +15,7 @@ conda activate ECE285_PROJECT
 
 ## Dataset
 
-We will be using the [Wiki-Art : Visual Art Encyclopedia](https://www.kaggle.com/datasets/ipythonx/wikiart-gangogh-creating-art-gan) Dataset sourced by Innat on Kaggle.
+We will be using the [Wiki-Art : Visual Art Encyclopedia](https://www.kaggle.com/datasets/ipythonx/wikiart-gangogh-creating-art-gan) Dataset sourced by Innat on Kaggle. This dataset is composed of 96,014 art gallery images ranging from abstract to landscape themes sourced from [WikiArt.org](WikiArt.org) and the [GANGogh Training Dataset](https://academictorrents.com/details/1d154cde2fab9ec8039becd03d9bb877614d351b).
 
 ## Getting Started
 
