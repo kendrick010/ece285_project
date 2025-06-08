@@ -185,3 +185,19 @@ models/mae_3_epoch_5.pt
 models/mae_3_epoch_6.pt
 models/mae_3_epoch_7.pt
 models/mae_3_epoch_8.pt
+
+# earlier epochs for model 2
+models/new_mae_epoch_0.pt
+models/new_mae_epoch_1.pt
+models/new_mae_epoch_2.pt
+models/new_mae_epoch_3.pt
+models/new_mae_epoch_4.pt
+models/new_mae_epoch_5.pt
+models/new_mae_epoch_6.pt
+models/new_mae_epoch_7.pt
+models/new_mae_epoch_8.pt
+models/new_mae_epoch_9.pt
+models/new_mae_epoch_10.pt
+models/new_mae_epoch_11.pt
+models/new_mae_epoch_12.pt
+models/new_mae_epoch_13.pt
