@@ -174,3 +174,14 @@ cython_debug/
 .pypirc
 
 data/WikiArtDataset.zip
+
+# earlier epochs for model 3
+models/mae_3_epoch_0.pt
+models/mae_3_epoch_1.pt
+models/mae_3_epoch_2.pt
+models/mae_3_epoch_3.pt
+models/mae_3_epoch_4.pt
+models/mae_3_epoch_5.pt
+models/mae_3_epoch_6.pt
+models/mae_3_epoch_7.pt
+models/mae_3_epoch_8.pt
