@@ -201,3 +201,5 @@ models/new_mae_epoch_10.pt
 models/new_mae_epoch_11.pt
 models/new_mae_epoch_12.pt
 models/new_mae_epoch_13.pt
+
+models/mae_epoch_3.pt
