@@ -21,3 +21,4 @@ dependencies:
     - einops
     - timm
     - tqdm
+    - lpips
