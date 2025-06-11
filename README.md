@@ -1,6 +1,6 @@
 # ECE 285 Project
 
->> [!NOTE]  
+> [!NOTE]  
 > 5-minute Demo Video: https://youtu.be/xO4jU_GmQsQ
 
 ## Abstract
