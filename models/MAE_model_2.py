@@ -7,11 +7,11 @@ from timm.layers import trunc_normal_
 from timm.models.vision_transformer import Block
 
 import torch
-import torch.nn as nn
 
 def random_indexes(size):
     forward_indexes = np.arange(size)
     np.random.shuffle(forward_indexes)
+    
     backward_indexes = np.argsort(forward_indexes)
     
     return forward_indexes, backward_indexes
@@ -28,14 +28,14 @@ class PatchShuffle(torch.nn.Module):
 
     def forward(self, patches):
         T, B, C = patches.shape
-        remain_T = int(T * (1 - self.ratio))
+        visible = int(T * (1 - self.ratio))
 
         indexes = [random_indexes(T) for _ in range(B)]
         forward_indexes = torch.as_tensor(np.stack([i[0] for i in indexes], axis=-1), dtype=torch.long).to(patches.device)
         backward_indexes = torch.as_tensor(np.stack([i[1] for i in indexes], axis=-1), dtype=torch.long).to(patches.device)
 
         patches = take_indexes(patches, forward_indexes)
-        patches = patches[:remain_T]
+        patches = patches[:visible]
 
         return patches, forward_indexes, backward_indexes
 
@@ -69,6 +69,7 @@ class MAE_Encoder(torch.nn.Module):
 
         patches = torch.cat([self.cls_token.expand(-1, patches.shape[1], -1), patches], dim=0)
         patches = rearrange(patches, 't b c -> b t c')
+        
         features = self.layer_norm(self.transformer(patches))
         features = rearrange(features, 'b t c -> t b c')
 
@@ -95,8 +96,16 @@ class MAE_Decoder(torch.nn.Module):
 
     def forward(self, features, backward_indexes):
         T = features.shape[0]
-        backward_indexes = torch.cat([torch.zeros(1, backward_indexes.shape[1]).to(backward_indexes), backward_indexes + 1], dim=0)
-        features = torch.cat([features, self.mask_token.expand(backward_indexes.shape[0] - features.shape[0], features.shape[1], -1)], dim=0)
+        
+        backward_indexes = torch.cat([
+            torch.zeros(1, backward_indexes.shape[1]).to(backward_indexes), 
+            backward_indexes + 1
+        ], dim=0)
+        
+        features = torch.cat([
+            features, 
+            self.mask_token.expand(backward_indexes.shape[0] - features.shape[0], features.shape[1], -1)
+        ], dim=0)
         features = take_indexes(features, backward_indexes)
         features = features + self.pos_embedding
 
@@ -109,6 +118,7 @@ class MAE_Decoder(torch.nn.Module):
         mask = torch.zeros_like(patches)
         mask[T-1:] = 1
         mask = take_indexes(mask, backward_indexes[1:] - 1)
+        
         img = self.patch2img(patches)
         mask = self.patch2img(mask)
 
