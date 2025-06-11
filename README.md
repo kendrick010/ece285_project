@@ -1,8 +1,11 @@
 # ECE 285 Project
 
+>> [!NOTE]  
+> 5-minute Demo Video: https://youtu.be/xO4jU_GmQsQ
+
 ## Abstract
 
-Masked Autoencoders (MAEs) are a self-supervised learning framework introduced by He et al. (2021), known for their ability to learn meaningful representations by reconstructing masked portions of input images. Although MAEs have shown strong performance on large multi-class image sets, their effectiveness in more specialized visual domains remains underexplored. This project aims to replicate the MAE architecture and train it on a visual art dataset to investigate whether MAEs can generalize to niche domains, such as artistic imagery and representation. Primary metrics in assessing the scalability of MAEs in the art domain will be reconstruction metrics (e.g. MSE (mean squared error), MAE (mean absolute error), PSNR (peak signal-to-noise ratio), SSIM (structural similarity index), etc.) and qualitative visualization.
+Masked Autoencoders (MAEs) are a self-supervised learning framework introduced by He et al. (2021), known for their ability to learn meaningful representations by reconstructing masked portions of input images. Although MAEs have shown strong performance on large multi-class image sets, their effectiveness in more specialized visual domains remains underexplored. This project aims to replicate the MAE architecture and train it on a visual art dataset to investigate whether MAEs can generalize to niche domains, such as artistic imagery and representation.
 
 ## Environment
 
